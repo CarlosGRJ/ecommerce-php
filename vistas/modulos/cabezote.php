@@ -1,3 +1,9 @@
+<?php  
+
+$servidor = Ruta::ctrRutaServidor();
+
+?>
+
 <!--=====================================
  TOP
 ======================================-->
@@ -77,7 +83,7 @@
 
                 <a href="#">
 
-                    <img src="http://localhost/backend-ecommerce-curso/<?php echo $social["logo"]; ?>" class="img-responsive">
+                    <img src="<?php echo $servidor.$social["logo"]; ?>" class="img-responsive">
 
                 </a>
 

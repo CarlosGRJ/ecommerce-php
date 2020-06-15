@@ -14,6 +14,8 @@
 
             <?php
 
+                $servidor = Ruta::ctrRutaServidor();
+
                 $slide = ControladorSlide::ctrMostrarSlide();
 
                 foreach ($slide as $key => $value) {
@@ -26,13 +28,13 @@
 
                     echo '<li>
 
-                        <img src="http://localhost/backend-ecommerce-curso/'.$value["imgFondo"].'">
+                        <img src="'.$servidor.$value["imgFondo"].'">
 
                             <div class="slideOpciones '.$value["tipoSlide"].'">';
 
                             if($value["imgProducto"] != "") {
 
-                                echo '<img class="imgProducto" src="http://localhost/backend-ecommerce-curso/'.$value["imgProducto"].'" 
+                                echo '<img class="imgProducto" src="'.$servidor.$value["imgProducto"].'" 
                                     style="top:'.$estiloImgProducto["top"].'; right:'.$estiloImgProducto["right"].'; 
                                     width:'.$estiloImgProducto["width"].'; left:'.$estiloImgProducto["left"].'">';
 
