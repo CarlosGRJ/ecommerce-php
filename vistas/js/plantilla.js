@@ -2,6 +2,9 @@
  PLANTILLA
 =============================================*/
 
+// Herramienta TOOLTIP
+$('[data-toggle="tooltip"]').tooltip();
+
 $.ajax({
 
     url: "ajax/plantilla.ajax.php",
@@ -55,6 +58,37 @@ for(var i = 0; i < btnList.length; i++) {
     });
 
 }
+
+/*=============================================
+ EFECTOS CON EL SCROLL
+=============================================*/
+
+$(window).scroll(function(){
+
+    var scrollY = window.pageYOffset;
+
+    if(window.matchMedia("(min-width: 768px)").matches) {
+
+        if(scrollY < ($(".banner").offset().top)-150) {
+
+            $(".banner img").css({"margin-top":-scrollY/3+"px"});
+    
+        } else {
+    
+            scrollY = 0;
+        }
+
+    }
+
+});
+
+$.scrollUp({
+
+    scrollText:"",
+    scrollSpeed: 2000,
+    easingType: "easeOutQuint"
+
+});
 
 
 
