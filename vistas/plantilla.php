@@ -83,6 +83,7 @@ include "modulos/cabezote.php";
 
 $rutas = array();
 $ruta = null;
+$infoProducto = null;
 
 if(isset($_GET["ruta"])) {
 
@@ -120,6 +121,18 @@ if(isset($_GET["ruta"])) {
     }
 
     /*=============================================
+     URL´S AMIGABLES DE PRODUCTOS
+    =============================================*/
+
+    $rutaProductos = ControladorProductos::ctrMostrarInfoProducto($item, $valor);
+
+    if(is_array($rutaProductos) && $rutas[0] == $rutaProductos["ruta"]){
+
+        $infoProducto = $rutas[0];
+
+    };
+
+    /*=============================================
      LISTA BLANCA DE URL´S AMIGABLES
     =============================================*/
 
@@ -127,6 +140,10 @@ if(isset($_GET["ruta"])) {
     $rutas[0] == "lo-mas-visto") {
 
         include "modulos/productos.php";
+
+    } else if($infoProducto != null){
+
+        include "modulos/infoproducto.php";
 
     } else {
 
