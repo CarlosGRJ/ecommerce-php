@@ -1,6 +1,7 @@
 <?php
 
 $servidor = Ruta::ctrRutaServidor();
+$url = Ruta::ctrRuta();
 
 ?>
 
@@ -41,7 +42,7 @@ $servidor = Ruta::ctrRutaServidor();
                 
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                     
-                        Ordenar Productos <span class="caret"></span>
+                    Ordenar Productos <span class="caret"></span>
                     
                     </button>
 
@@ -51,8 +52,6 @@ $servidor = Ruta::ctrRutaServidor();
                         <li><a href="#">Más antiguo</a></li>
 
                     </ul>
-
-                    
 
                 </div>
 
@@ -92,20 +91,28 @@ $servidor = Ruta::ctrRutaServidor();
  LISTAR PRODUCTOS
 ======================================-->
 
-<div class="container-fluid">
+<div class="container-fluid productos">
 
     <div class="container">
     
         <div class="row">
 
-            <ul class="breadcrumb fondoBreadcrumb lead">
+            <!--=====================================
+			BREADCRUMB O MIGAS DE PAN
+			======================================-->
+
+            <ul class="breadcrumb fondoBreadcrumb text-uppercase">
             
-                <li><a href="#">INICIO</a></li>
-                <li class="active"><?php echo $rutas[0]; ?></li>
+                <li><a href="<?php echo $url; ?>">INICIO</a></li>
+                <li class="active pagActiva"><?php echo $rutas[0]; ?></li>
 
             </ul>
         
             <?php
+
+            /*=============================================
+			LLAMADO DE PRODUCTOS DE CATEGORÍAS, SUBCATEGORÍAS Y DESTACADOS
+			=============================================*/
 
             if($rutas[0] == "articulos-gratis") {
 
@@ -154,6 +161,8 @@ $servidor = Ruta::ctrRutaServidor();
             $tope = 12;
 
             $productos = ControladorProductos::ctrMostrarProductos($ordenar, $item2, $valor2, $base, $tope);
+            $listaProductos = ControladorProductos::ctrListarProductos($ordenar, $item2, $valor2);
+            
 
             if(!$productos) {
 
@@ -443,7 +452,53 @@ $servidor = Ruta::ctrRutaServidor();
 
             }
 
+            var_dump(count($listaProductos));
+
             ?>
+
+            <center>
+
+                <?php
+
+                    if(count($listaProductos) != 0) {
+
+                        $pagProductos = ceil(count($listaProductos)/12);
+
+                        if($pagProductos > 4) {
+
+
+
+                        } else {
+
+                            echo '<ul class="pagination">';
+                            
+                            for($i = 1; $i <= $pagProductos; $i++) {
+
+                                echo '<li><a href="#">'.$i.'</a></li>';
+
+                            }
+                            
+                            echo '</ul>';
+
+                        }
+
+
+                    }
+
+                ?>
+                
+                <!-- <ul class="pagination">
+                    <li><a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li class="disabled"><a>...</a></li>
+                    <li><a href="#">20</a></li>
+                    <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                </ul> -->
+
+            </center>
 
         </div>
 
