@@ -37,17 +37,17 @@ $url = Ruta::ctrRuta();
         <div class="row">
 
             <div class="col-sm-6 col-xs-12">
-            
+
                 <div class="btn-group">
-                
+
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    
-                    Ordenar Productos <span class="caret"></span>
-                    
+
+                        Ordenar Productos <span class="caret"></span>
+
                     </button>
 
                     <ul class="dropdown-menu" role="menu">
-                    
+
                         <li><a href="#">Más reciente</a></li>
                         <li><a href="#">Más antiguo</a></li>
 
@@ -94,7 +94,7 @@ $url = Ruta::ctrRuta();
 <div class="container-fluid productos">
 
     <div class="container">
-    
+
         <div class="row">
 
             <!--=====================================
@@ -102,13 +102,30 @@ $url = Ruta::ctrRuta();
 			======================================-->
 
             <ul class="breadcrumb fondoBreadcrumb text-uppercase">
-            
+
                 <li><a href="<?php echo $url; ?>">INICIO</a></li>
                 <li class="active pagActiva"><?php echo $rutas[0]; ?></li>
 
             </ul>
-        
+
             <?php
+
+            /*=============================================
+			LLAMADO DE PAGINACIÓN
+            =============================================*/
+            
+            if(isset($rutas[1])) {
+
+                $base = ($rutas[1] - 1)*12; 
+                $tope = 12;
+
+            } else {
+
+                $rutas[1] = 1;
+                $base = 0; 
+                $tope = 12;
+
+            }
 
             /*=============================================
 			LLAMADO DE PRODUCTOS DE CATEGORÍAS, SUBCATEGORÍAS Y DESTACADOS
@@ -157,9 +174,6 @@ $url = Ruta::ctrRuta();
 
             }
 
-            $base = 0; 
-            $tope = 12;
-
             $productos = ControladorProductos::ctrMostrarProductos($ordenar, $item2, $valor2, $base, $tope);
             $listaProductos = ControladorProductos::ctrListarProductos($ordenar, $item2, $valor2);
             
@@ -191,6 +205,8 @@ $url = Ruta::ctrRuta();
                                 </a>
 
                             </figure>
+
+                            '.$value["id"].'
                             
                             <h4>
 
@@ -452,11 +468,15 @@ $url = Ruta::ctrRuta();
 
             }
 
-            var_dump(count($listaProductos));
-
             ?>
+            
+            <div class="clearfix"></div>
 
             <center>
+
+                <!--=====================================
+                 PAGINACIÓN
+                ======================================-->
 
                 <?php
 
@@ -466,7 +486,107 @@ $url = Ruta::ctrRuta();
 
                         if($pagProductos > 4) {
 
+                            /*=============================================
+                             LOS BOTONES DE LAS PRIMERA 4 PÁGINAS Y LA ÚLTIMA PÁG
+                            =============================================*/
 
+                            if($rutas[1] == 1) {
+
+                                echo '<ul class="pagination">';
+                                
+                                for($i = 1; $i <= 4; $i++) {
+
+                                    echo '<li><a href="'.$url.$rutas[0].'/'.$i.'">'.$i.'</a></li>';
+
+                                }
+
+                                echo '<li class="disabled"><a>...</a></li>
+                                    <li><a href="'.$url.$rutas[0].'/'.$pagProductos.'">'.$pagProductos.'</a></li>
+                                    <li><a href="'.$url.$rutas[0].'/2"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                                </ul>';
+
+                            }
+
+                            /*=============================================
+                             LOS BOTONES DE LA MITAD DE PÁGINAS HACIA ABAJO
+                            =============================================*/
+
+                            else if($rutas[1] != $pagProductos && 
+                                    $rutas[1] != 1 &&
+                                    $rutas[1] < ($pagProductos/2) &&
+                                    $rutas[1] < ($pagProductos-3) 
+                                    ) {
+
+                                    $numPagActual = $rutas[1];
+
+                                    echo '<ul class="pagination">
+                                            <li><a href="'.$url.$rutas[0].'/'.($numPagActual-1).'"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>';
+                                    
+                                    for($i = $numPagActual; $i <= ($numPagActual + 3); $i++) {
+
+                                        echo '<li><a href="'.$url.$rutas[0].'/'.$i.'">'.$i.'</a></li>';
+
+                                    }
+
+                                    echo '<li class="disabled"><a>...</a></li>
+                                        <li><a href="'.$url.$rutas[0].'/'.$pagProductos.'">'.$pagProductos.'</a></li>
+                                        <li><a href="'.$url.$rutas[0].'/'.($numPagActual+1).'"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+
+                                    </ul>';
+
+                            }
+
+                            /*=============================================
+                             LOS BOTONES DE LA MITAD DE PÁGINAS HACIA ARRIBA
+                            =============================================*/
+
+                            else if($rutas[1] != $pagProductos && 
+                                    $rutas[1] != 1 &&
+                                    $rutas[1] >= ($pagProductos/2) &&
+                                    $rutas[1] < ($pagProductos-3) 
+                                    ) {
+
+                                    $numPagActual = $rutas[1];
+
+                                    echo '<ul class="pagination">
+                                            <li><a href="'.$url.$rutas[0].'/'.($numPagActual-1).'"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+                                            <li><a href="'.$url.$rutas[0].'/1">1</a></li>
+                                            <li class="disabled"><a>...</a></li>
+                                            ';
+                                    
+                                    for($i = $numPagActual; $i <= ($numPagActual + 3); $i++) {
+
+                                        echo '<li><a href="'.$url.$rutas[0].'/'.$i.'">'.$i.'</a></li>';
+
+                                    }
+
+                                    echo ' <li><a href="'.$url.$rutas[0].'/'.($numPagActual+1).'"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                                    </ul>';
+                            }
+
+                            /*=============================================
+                             LOS BOTONES DE LAS ÚLTIMAS 4 PÁGINAS Y LA PRIMER PÁG
+                            =============================================*/
+
+                            else {
+
+                                $numPagActual = $rutas[1];
+
+                                echo '<ul class="pagination">
+                                        <li><a href="'.$url.$rutas[0].'/'.($numPagActual-1).'"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+                                        <li><a href="'.$url.$rutas[0].'/1">1</a></li>
+                                        <li class="disabled"><a>...</a></li>
+                                        ';
+                                
+                                for($i = $pagProductos-3; $i <= $pagProductos; $i++) {
+
+                                    echo '<li><a href="'.$url.$rutas[0].'/'.$i.'">'.$i.'</a></li>';
+
+                                }
+
+                                echo ' </ul>';
+
+                            }
 
                         } else {
 
@@ -474,7 +594,7 @@ $url = Ruta::ctrRuta();
                             
                             for($i = 1; $i <= $pagProductos; $i++) {
 
-                                echo '<li><a href="#">'.$i.'</a></li>';
+                                echo '<li><a href="'.$url.$rutas[0].'/'.$i.'">'.$i.'</a></li>';
 
                             }
                             
@@ -482,11 +602,10 @@ $url = Ruta::ctrRuta();
 
                         }
 
-
                     }
 
                 ?>
-                
+
                 <!-- <ul class="pagination">
                     <li><a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
                     <li><a href="#">1</a></li>
