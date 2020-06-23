@@ -1,30 +1,44 @@
+<!--=====================================
+ BANNER
+======================================-->
+
 <?php
 
 $servidor = Ruta::ctrRutaServidor();
 $url = Ruta::ctrRuta();
 
-?>
+$ruta = $rutas[0];
 
-<!--=====================================
- BANNER
-======================================-->
+$banner = ControladorProductos::ctrMostrarBanner($ruta);
 
-<figure class="banner">
+if(is_array($banner)){
+$titulo1 = json_decode($banner["titulo1"], true);
+$titulo2 = json_decode($banner["titulo2"], true);
+$titulo3 = json_decode($banner["titulo3"], true);
+}
 
-    <img src="http://localhost/backend-ecommerce-curso/vistas/img/banner/default.jpg" class="img-responsive"
+if($banner != null){
+
+echo '<figure class="banner">
+
+    <img src="'.$servidor.$banner["img"].'" class="img-responsive"
         width="100%">
 
-    <div class="textoBanner textoDer">
+    <div class="textoBanner '.$banner["estilo"].'">
 
-        <h1 style="color:#fff">OFERTAS ESPECIALES</h1>
+        <h1 style="color:'.$titulo1["color"].'">'.$titulo1["texto"].'</h1>
 
-        <h2 style="color:#fff"><strong>50% off</strong></h2>
+        <h2 style="color:'.$titulo2["color"].'"><strong>'.$titulo2["texto"].'</strong></h2>
 
-        <h3 style="color:#fff">Termina el 31 de Octubre</h3>
+        <h3 style="color:'.$titulo3["color"].'">'.$titulo3["texto"].'</h3>
 
     </div>
 
-</figure>
+    </figure>';
+
+}
+
+?>
 
 <!--=====================================
  BARRA PRODUCTOS
@@ -48,8 +62,12 @@ $url = Ruta::ctrRuta();
 
                     <ul class="dropdown-menu" role="menu">
 
-                        <li><a href="#">Más reciente</a></li>
-                        <li><a href="#">Más antiguo</a></li>
+                        <?php
+
+                        echo '<li><a href="'.$url.$rutas[0].'/1/recientes">Más reciente</a></li>
+                              <li><a href="'.$url.$rutas[0].'/1/antiguos">Más antiguo</a></li>';
+
+                        ?>
 
                     </ul>
 
@@ -116,6 +134,26 @@ $url = Ruta::ctrRuta();
             
             if(isset($rutas[1])) {
 
+                if(isset($rutas[2])) {
+
+                    if($rutas[2] == "antiguos") {
+
+                        $modo = "ASC";
+                        $_SESSION["ordenar"] = "ASC";
+
+                    } else {
+                        
+                        $modo = "DESC";
+                        $_SESSION["ordenar"] = "DESC";
+
+                    }
+
+                } else {
+
+                    $modo =  $_SESSION["ordenar"];
+
+                }
+
                 $base = ($rutas[1] - 1)*12; 
                 $tope = 12;
 
@@ -124,6 +162,7 @@ $url = Ruta::ctrRuta();
                 $rutas[1] = 1;
                 $base = 0; 
                 $tope = 12;
+                $modo = "DESC";
 
             }
 
@@ -174,7 +213,7 @@ $url = Ruta::ctrRuta();
 
             }
 
-            $productos = ControladorProductos::ctrMostrarProductos($ordenar, $item2, $valor2, $base, $tope);
+            $productos = ControladorProductos::ctrMostrarProductos($ordenar, $item2, $valor2, $base, $tope, $modo);
             $listaProductos = ControladorProductos::ctrListarProductos($ordenar, $item2, $valor2);
             
 

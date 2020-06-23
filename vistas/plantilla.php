@@ -18,6 +18,8 @@
 
     <?php
 
+        session_start();
+
         $servidor = Ruta::ctrRutaServidor();
 
         $icono = ControladorPlantilla::ctrEstiloPlantilla();
@@ -170,6 +172,7 @@ if(isset($_GET["ruta"])) {
 <script src="<?php echo $url; ?>vistas/js/cabezote.js"></script>
 <script src="<?php echo $url; ?>vistas/js/plantilla.js"></script>
 <script src="<?php echo $url; ?>vistas/js/slide.js"></script>
+<script src="<?php echo $url; ?>vistas/js/buscador.js"></script>
 
 </body>
 </html>
