@@ -71,13 +71,17 @@ $(window).scroll(function(){
 
     if(window.matchMedia("(min-width: 768px)").matches) {
 
-        if(scrollY < ($(".banner").offset().top)-150) {
+        if($(".banner").html() != null) {
 
-            $(".banner img").css({"margin-top":-scrollY/3+"px"});
-    
-        } else {
-    
-            scrollY = 0;
+            if(scrollY < ($(".banner").offset().top)-150) {
+
+                $(".banner img").css({"margin-top":-scrollY/3+"px"});
+        
+            } else {
+        
+                scrollY = 0;
+            }
+
         }
 
     }
@@ -114,8 +118,20 @@ var url = window.location.href;
 
 var indice = url.split("/");
 
-$("#item"+indice.pop()).addClass("active");
+console.log("indice ", indice);
 
+var pagActual = indice[5];
+ console.log("pagActual ", pagActual);
+
+ if(isNaN(pagActual)) {
+
+    $("#item1").addClass("active");
+
+ } else {
+
+    $("#item"+pagActual).addClass("active");
+
+}
 
 
 

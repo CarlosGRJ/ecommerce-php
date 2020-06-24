@@ -22,8 +22,8 @@
 
                         <?php
 
-                        echo '<li><a href="'.$url.$rutas[0].'/1/recientes">Más reciente</a></li>
-                              <li><a href="'.$url.$rutas[0].'/1/antiguos">Más antiguo</a></li>';
+                        echo '<li><a href="'.$url.$rutas[0].'/1/recientes/'.$rutas[3].'">Más reciente</a></li>
+                              <li><a href="'.$url.$rutas[0].'/1/antiguos/'.$rutas[3].'">Más antiguo</a></li>';
 
                         ?>
 
@@ -460,13 +460,14 @@
                                 
                                 for($i = 1; $i <= 4; $i++) {
 
-                                    echo '<li id="item'.$i.'"><a href="'.$url.$rutas[0].'/'.$i.'">'.$i.'</a></li>';
+                                    echo '<li id="item'.$i.'"><a href="'.$url.$rutas[0].'/'.$i.'/'.$rutas[2].'/'.$rutas[3].'">'.$i.'</a></li>';
 
                                 }
 
                                 echo '<li class="disabled"><a>...</a></li>
-                                    <li id="item'.$pagProductos.'"><a href="'.$url.$rutas[0].'/'.$pagProductos.'">'.$pagProductos.'</a></li>
-                                    <li><a href="'.$url.$rutas[0].'/2"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                                    <li id="item'.$pagProductos.'"><a href="'.$url.$rutas[0].'/'.$pagProductos.'/'.$rutas[2].'/'.$rutas[3].'">
+                                    '.$pagProductos.'</a></li>
+                                    <li><a href="'.$url.$rutas[0].'/2/'.$rutas[2].'/'.$rutas[3].'"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
                                 </ul>';
 
                             }
@@ -484,17 +485,20 @@
                                     $numPagActual = $rutas[1];
 
                                     echo '<ul class="pagination">
-                                            <li><a href="'.$url.$rutas[0].'/'.($numPagActual-1).'"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>';
+                                            <li><a href="'.$url.$rutas[0].'/'.($numPagActual-1).'/'.$rutas[2].'/'.$rutas[3].'">
+                                            <i class="fa fa-angle-left" aria-hidden="true"></i></a></li>';
                                     
                                     for($i = $numPagActual; $i <= ($numPagActual + 3); $i++) {
 
-                                        echo '<li id="item'.$i.'"><a href="'.$url.$rutas[0].'/'.$i.'">'.$i.'</a></li>';
+                                        echo '<li id="item'.$i.'"><a href="'.$url.$rutas[0].'/'.$i.'/'.$rutas[2].'/'.$rutas[3].'">'.$i.'</a></li>';
 
                                     }
 
                                     echo '<li class="disabled"><a>...</a></li>
-                                        <li id="item'.$pagProductos.'"><a href="'.$url.$rutas[0].'/'.$pagProductos.'">'.$pagProductos.'</a></li>
-                                        <li><a href="'.$url.$rutas[0].'/'.($numPagActual+1).'"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                                        <li id="item'.$pagProductos.'"><a href="'.$url.$rutas[0].'/'.$pagProductos.'/'.$rutas[2].'/'.$rutas[3].'">
+                                        '.$pagProductos.'</a></li>
+                                        <li><a href="'.$url.$rutas[0].'/'.($numPagActual+1).'/'.$rutas[2].'/'.$rutas[3].'">
+                                        <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
 
                                     </ul>';
 
@@ -513,18 +517,19 @@
                                     $numPagActual = $rutas[1];
 
                                     echo '<ul class="pagination">
-                                            <li><a href="'.$url.$rutas[0].'/'.($numPagActual-1).'"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
-                                            <li id="item1"><a href="'.$url.$rutas[0].'/1">1</a></li>
+                                            <li><a href="'.$url.$rutas[0].'/'.($numPagActual-1).'/'.$rutas[2].'/'.$rutas[3].'">
+                                            <i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+                                            <li id="item1"><a href="'.$url.$rutas[0].'/1/'.$rutas[2].'/'.$rutas[3].'">1</a></li>
                                             <li class="disabled"><a>...</a></li>
                                             ';
                                     
                                     for($i = $numPagActual; $i <= ($numPagActual + 3); $i++) {
 
-                                        echo '<li id="item'.$i.'"><a href="'.$url.$rutas[0].'/'.$i.'">'.$i.'</a></li>';
+                                        echo '<li id="item'.$i.'"><a href="'.$url.$rutas[0].'/'.$i.'/'.$rutas[2].'/'.$rutas[3].'">'.$i.'</a></li>';
 
                                     }
 
-                                    echo ' <li><a href="'.$url.$rutas[0].'/'.($numPagActual+1).'"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                                    echo ' <li><a href="'.$url.$rutas[0].'/'.($numPagActual+1).'/'.$rutas[2].'/'.$rutas[3].'"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
                                     </ul>';
                             }
 
@@ -537,14 +542,15 @@
                                 $numPagActual = $rutas[1];
 
                                 echo '<ul class="pagination">
-                                        <li><a href="'.$url.$rutas[0].'/'.($numPagActual-1).'"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
-                                        <li id="item1"><a href="'.$url.$rutas[0].'/1">1</a></li>
+                                        <li><a href="'.$url.$rutas[0].'/'.($numPagActual-1).'/'.$rutas[2].'/'.$rutas[3].'">
+                                        <i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+                                        <li id="item1"><a href="'.$url.$rutas[0].'/1/'.$rutas[2].'/'.$rutas[3].'">1</a></li>
                                         <li class="disabled"><a>...</a></li>
                                         ';
                                 
                                 for($i = $pagProductos-3; $i <= $pagProductos; $i++) {
 
-                                    echo '<li id="item'.$i.'"><a href="'.$url.$rutas[0].'/'.$i.'">'.$i.'</a></li>';
+                                    echo '<li id="item'.$i.'"><a href="'.$url.$rutas[0].'/'.$i.'/'.$rutas[2].'/'.$rutas[3].'">'.$i.'</a></li>';
 
                                 }
 
@@ -558,7 +564,7 @@
                             
                             for($i = 1; $i <= $pagProductos; $i++) {
 
-                                echo '<li id="item'.$i.'"><a href="'.$url.$rutas[0].'/'.$i.'">'.$i.'</a></li>';
+                                echo '<li id="item'.$i.'"><a href="'.$url.$rutas[0].'/'.$i.'/'.$rutas[2].'/'.$rutas[3].'">'.$i.'</a></li>';
 
                             }
                             

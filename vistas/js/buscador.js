@@ -2,6 +2,16 @@
  BUSCADOR
 =============================================*/
 
+$("#buscador a").click(function(){
+
+    if($("#buscador input").val() == "") {
+
+        $("#buscador a").attr("href", "");
+
+    }
+
+});
+
 $("#buscador input").change(function(){
 
     var busqueda = $("#buscador input").val();
@@ -14,7 +24,7 @@ $("#buscador input").change(function(){
 
     } else {
 
-        var evaluarBusqueda = busqueda.replace(/[áéíóúÁÉÍÓÚ ]/g, "-");
+        var evaluarBusqueda = busqueda.replace(/[áéíóúÁÉÍÓÚ ]/g, "_");
 
         var rutaBuscador = $("#buscador a").attr("href");
 
