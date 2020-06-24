@@ -147,6 +147,10 @@ if(isset($_GET["ruta"])) {
 
         include "modulos/infoproducto.php";
 
+    } else if($rutas[0] == "buscador"){
+
+        include "modulos/buscador.php";
+
     } else {
 
         include "modulos/error404.php";
