@@ -2,7 +2,7 @@
 
 Options All -Indexes
 
-# Crear Url Amigables
+# Url Amigables
 
 RewriteEngine On
 
