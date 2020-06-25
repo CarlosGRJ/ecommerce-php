@@ -150,7 +150,15 @@ echo '<figure class="banner">
 
                 } else {
 
-                    $modo =  $_SESSION["ordenar"];
+                    if(isset($_SESSION["ordenar"])) {
+
+                        $modo =  $_SESSION["ordenar"];
+
+                    } else {
+
+                        $modo =  "DESC";
+
+                    }
 
                 }
 
@@ -237,7 +245,7 @@ echo '<figure class="banner">
 
                             <figure>
 
-                                <a href="'.$value["ruta"].'" class="pixelProducto">
+                                <a href="'.$url.$value["ruta"].'" class="pixelProducto">
 
                                     <img src="'.$servidor.$value["portada"].'" class="img-responsive">
 
@@ -251,7 +259,7 @@ echo '<figure class="banner">
 
                                 <small>
 
-                                    <a href="'.$value["ruta"].'" class="pixelProducto">
+                                    <a href="'.$url.$value["ruta"].'" class="pixelProducto">
 
                                         '.$value["titulo"].' <br>
 
@@ -346,7 +354,7 @@ echo '<figure class="banner">
 
                                     }
 
-                                    echo '<a href="'.$value["ruta"].'" class="pixelProducto">
+                                    echo '<a href="'.$url.$value["ruta"].'" class="pixelProducto">
 
                                         <button type="button" class="btn btn-default btn-xs" data-toggle="tooltip"
                                             title="Ver producto">
@@ -378,7 +386,7 @@ echo '<figure class="banner">
 
                             <figure>
 
-                                <a href="'.$value["ruta"].'" class="pixelProducto">
+                                <a href="'.$url.$value["ruta"].'" class="pixelProducto">
 
                                     <img src="'.$servidor.$value["portada"].'" class="img-responsive">
 
@@ -394,7 +402,7 @@ echo '<figure class="banner">
 
                                 <small>
 
-                                    <a href="'.$value["ruta"].'" class="pixelProducto">
+                                    <a href="'.$url.$value["ruta"].'" class="pixelProducto">
 
                                         '.$value["titulo"].'<br>';
 
@@ -482,7 +490,7 @@ echo '<figure class="banner">
 
                                 }
 
-                                echo '<a href="'.$value["ruta"].'" class="pixelProducto">
+                                echo '<a href="'.$url.$value["ruta"].'" class="pixelProducto">
 
                                     <button type="button" class="btn btn-default btn-xs" data-toggle="tooltip"
                                         title="Ver producto">

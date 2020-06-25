@@ -103,6 +103,14 @@ MOVIL (XS revisamos en 320px)
 	.videoPresentacion{
 
 		height:200px;
-	}
+    }
+    
+    .fondoBreadcrumb {
+        font-size: 12px;
+    }
+
+    .botonesCompra button{
+        margin: 5px 0;
+    }
 
 }
