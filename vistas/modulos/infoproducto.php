@@ -44,6 +44,10 @@ $url = Ruta::ctrRuta();
                 $valor = $rutas[0];
                 $infoproducto = ControladorProductos::ctrMostrarInfoProducto($item, $valor);
 
+                
+
+                $multimedia = json_decode($infoproducto["multimedia"], true);
+
                 /*=============================================
                  VISOR DE IMÁGENES
                 =============================================*/
@@ -52,52 +56,35 @@ $url = Ruta::ctrRuta();
 
                     echo '<div class="col-md-5 col-sm-6 col-xs-12 visorImg">
             
-                            <figure class="visor">
-                            
-                                <img id="lupa1" class="img-thumbnail" src="http://localhost/backend-ecommerce-curso/vistas/img/multimedia/tennis-verde/img-01.jpg" 
-                                alt="tennis verde 11">
-            
-                                <img id="lupa2" class="img-thumbnail" src="http://localhost/backend-ecommerce-curso/vistas/img/multimedia/tennis-verde/img-02.jpg" 
-                                alt="tennis verde 11">
-            
-                                <img id="lupa3" class="img-thumbnail" src="http://localhost/backend-ecommerce-curso/vistas/img/multimedia/tennis-verde/img-03.jpg" 
-                                alt="tennis verde 11">
-            
-                                <img id="lupa4" class="img-thumbnail" src="http://localhost/backend-ecommerce-curso/vistas/img/multimedia/tennis-verde/img-04.jpg" 
-                                alt="tennis verde 11">
-            
-                                <img id="lupa5" class="img-thumbnail" src="http://localhost/backend-ecommerce-curso/vistas/img/multimedia/tennis-verde/img-05.jpg" 
-                                alt="tennis verde 11">
-            
-                            </figure>
-            
-                            <div class="flexslider">
-            
-                                <ul class="slides">
-            
-                                    <li>
-                                        <img value="1" class="img-thumbnail" src="http://localhost/backend-ecommerce-curso/vistas/img/multimedia/tennis-verde/img-01.jpg" 
-                                        alt="tennis verde 11">
-                                    </li>
-                                    <li>
-                                        <img value="2" class="img-thumbnail" src="http://localhost/backend-ecommerce-curso/vistas/img/multimedia/tennis-verde/img-02.jpg" 
-                                        alt="tennis verde 11">
-                                    </li>
-                                    <li>
-                                        <img value="3" class="img-thumbnail" src="http://localhost/backend-ecommerce-curso/vistas/img/multimedia/tennis-verde/img-03.jpg" 
-                                        alt="tennis verde 11">
-                                    </li>
-                                    <li>
-                                        <img value="4" class="img-thumbnail" src="http://localhost/backend-ecommerce-curso/vistas/img/multimedia/tennis-verde/img-04.jpg" 
-                                        alt="tennis verde 11">
-                                    </li>
-            
-                                    <li>
-                                        <img value="5" class="img-thumbnail" src="http://localhost/backend-ecommerce-curso/vistas/img/multimedia/tennis-verde/img-05.jpg" 
-                                        alt="tennis verde 11">
-                                    </li>
+                            <figure class="visor">';
+
+                            if($multimedia != null){
+
+                                for($i = 0; $i < count($multimedia); $i++) {
+
+                                    echo '<img id="lupa'.($i+1).'" class="img-thumbnail" src="'.$servidor.$multimedia[$i]["foto"].'" 
+                                    alt="tennis verde 11">';
+
+                                }
+                
+                                echo '</figure>
+                
+                                <div class="flexslider">
+                
+                                    <ul class="slides">';
+
+                                    for($i = 0; $i < count($multimedia); $i++) {
+
+                                        echo '<li>
+                                                <img value="'.($i+1).'" class="img-thumbnail" src="'.$servidor.$multimedia[$i]["foto"].'" 
+                                                alt="'.$infoproducto["titulo"].'">
+                                            </li>';
+        
+                                    }
+
+                            }
                                     
-                                </ul>
+                                echo '</ul>
             
                             </div>
             
@@ -111,7 +98,7 @@ $url = Ruta::ctrRuta();
 
                     echo '<div class="col-sm-6 col-xs-12">
                     
-                            <iframe class="videoPresentacion" src="https://www.youtube.com/embed/N4aY6yX-MaM?rel=0&autoplay=0" width="100%" 
+                            <iframe class="videoPresentacion" src="https://www.youtube.com/embed/'.$infoproducto["multimedia"].'?rel=0&autoplay=0" width="100%" 
                             frameborder="0" allowfullscreen></iframe>
                     
                         </div>';
