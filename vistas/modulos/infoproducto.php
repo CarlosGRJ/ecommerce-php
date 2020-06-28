@@ -12,16 +12,16 @@ $url = Ruta::ctrRuta();
 <div class="container-fluid well well-sm">
 
     <div class="container">
-    
+
         <div class="row">
-        
+
             <ul class="breadcrumb fondoBreadcrumb text-uppercase">
-            
+
                 <li><a href="<?php echo $url; ?>">INICIO</a></li>
                 <li class="active pagActiva"><?php echo $rutas[0]; ?></li>
 
             </ul>
-        
+
         </div>
 
     </div>
@@ -35,7 +35,7 @@ $url = Ruta::ctrRuta();
 <div class="container-fluid infoproducto">
 
     <div class="container">
-    
+
         <div class="row">
 
             <?php
@@ -125,69 +125,69 @@ $url = Ruta::ctrRuta();
 
             ?>
 
-            
 
-                <!--=====================================
+
+            <!--=====================================
                  REGRESAR A LA TIENDA
                 ======================================-->
 
-                <div class="col-xs-6">
+            <div class="col-xs-6">
 
-                    <h6>
+                <h6>
 
-                        <a href="javascript:history.back()" class="text-muted">
+                    <a href="javascript:history.back()" class="text-muted">
 
-                            <i class="fa fa-reply"></i> Continuar Comprando
+                        <i class="fa fa-reply"></i> Continuar Comprando
 
-                        </a>
+                    </a>
 
-                    </h6>
+                </h6>
 
-                </div>
+            </div>
 
-                <!--=====================================
+            <!--=====================================
                  COMPARTIR EN REDES SOCIALES
                 ======================================-->
 
-                <div class="col-xs-6">
+            <div class="col-xs-6">
 
-                    <h6>
+                <h6>
 
-                        <a class="dropdown-toggle pull-right text-muted" data-toggle="dropdown" href="#">
+                    <a class="dropdown-toggle pull-right text-muted" data-toggle="dropdown" href="#">
 
-                            <i class="fa fa-plus"></i> Compartir
+                        <i class="fa fa-plus"></i> Compartir
 
-                        </a>
+                    </a>
 
-                        <ul class="dropdown-menu pull-right compartirRedes">
+                    <ul class="dropdown-menu pull-right compartirRedes">
 
-                            <li>
-                                <p class="btnFacebook">
-                                    <i class="fa fa-facebook"></i>
-                                    Facebook
-                                </p>
-                            </li>
+                        <li>
+                            <p class="btnFacebook">
+                                <i class="fa fa-facebook"></i>
+                                Facebook
+                            </p>
+                        </li>
 
-                            <li>
-                                <p class="btnGoogle">
-                                    <i class="fa fa-google"></i>
-                                    Google
-                                </p>
-                            </li>
+                        <li>
+                            <p class="btnGoogle">
+                                <i class="fa fa-google"></i>
+                                Google
+                            </p>
+                        </li>
 
-                        </ul>
+                    </ul>
 
-                    </h6>
+                </h6>
 
-                </div>
+            </div>
 
-                <div class="clearfix"></div>
+            <div class="clearfix"></div>
 
-                <!--=====================================
+            <!--=====================================
                 ESPACIO PARA EL PRODUCTO
                 ======================================-->
 
-                <?php
+            <?php
 
                     /*=============================================
                      TITULO
@@ -294,13 +294,13 @@ $url = Ruta::ctrRuta();
 
                 ?>
 
-                <!--=====================================
+            <!--=====================================
                 CARACTERÍSTICAS DEL PRODUCTO
                 ======================================-->
 
-                <hr>
+            <hr>
 
-                <div class="form-group row">
+            <div class="form-group row">
 
                 <?php
 
@@ -560,13 +560,13 @@ $url = Ruta::ctrRuta();
 
                 ?>
 
-                </div>
+            </div>
 
-                <!--=====================================
+            <!--=====================================
                  BOTONES DE COMPRA
                 ======================================-->
 
-                <div class="row botonesCompra">
+            <div class="row botonesCompra">
 
                 <?php
 
@@ -626,22 +626,178 @@ $url = Ruta::ctrRuta();
 
                 ?>
 
-                </div>
+            </div>
 
-                <!--=====================================
+            <!--=====================================
                 ZONA LUPA
                 ======================================-->
 
-                <figure class="lupa">
+            <figure class="lupa">
 
-                    <img src="">
+                <img src="">
 
-                </figure>
+            </figure>
+
+        </div>
+
+    </div>
+
+    <!--=====================================
+     COMENTARIOS
+    ======================================-->
+
+    <br>
+
+    <div class="row">
+
+        <ul class="nav nav-tabs">
+
+            <li class="active"><a>COMENTARIOS 22</a></li>
+            <li><a href="">Ver más</a></li>
+            <li class="pull-right"><a class="text-muted">PROMEDIO DE CALIFICACIÓN: 3.5 |
+
+                    <i class="fa fa-star text-success"></i>
+                    <i class="fa fa-star text-success"></i>
+                    <i class="fa fa-star text-success"></i>
+                    <i class="fa fa-star-half-o text-success"></i>
+                    <i class="fa fa-star-o text-success"></i>
+
+                </a></li>
+
+        </ul>
+
+        <br>
+
+    </div>
+
+    <div class="row comentarios">
+
+        <div class="panel-group col-md-3 col-sm-6 col-xs-12">
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading text-uppercase">
+
+                    Andrés Felipe
+                    <span class="text-right">
+                        <img class="img-circle" src="<?php echo $url; ?>vistas/img/usuarios/40/944.jpg" width="20%">
+                    </span>
+
+                </div>
+
+                <div class="panel-body"><small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro omnis
+                        molestias consequuntur quaerat illo aliquid, commodi iste quam laboriosam quas voluptate tempore
+                        distinctio dolore dolorem, ut, minus vitae unde optio.</small></div>
+
+                <div class="panel-footer">
+
+                    <i class="fa fa-star text-success"></i>
+                    <i class="fa fa-star text-success"></i>
+                    <i class="fa fa-star text-success"></i>
+                    <i class="fa fa-star-half-o text-success"></i>
+                    <i class="fa fa-star-o text-success"></i>
+                    
+                </div>
 
             </div>
-        
+
         </div>
-    
+
+        <div class="panel-group col-md-3 col-sm-6 col-xs-12">
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading text-uppercase">
+
+                    Andrés Felipe
+                    <span class="text-right">
+                        <img class="img-circle" src="<?php echo $url; ?>vistas/img/usuarios/40/944.jpg" width="20%">
+                    </span>
+
+                </div>
+
+                <div class="panel-body"><small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro omnis
+                        molestias consequuntur quaerat illo aliquid, commodi iste quam laboriosam quas voluptate tempore
+                        distinctio dolore dolorem, ut, minus vitae unde optio.</small></div>
+
+                <div class="panel-footer">
+
+                    <i class="fa fa-star text-success"></i>
+                    <i class="fa fa-star text-success"></i>
+                    <i class="fa fa-star text-success"></i>
+                    <i class="fa fa-star-half-o text-success"></i>
+                    <i class="fa fa-star-o text-success"></i>
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="panel-group col-md-3 col-sm-6 col-xs-12">
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading text-uppercase">
+
+                    Andrés Felipe
+                    <span class="text-right">
+                        <img class="img-circle" src="<?php echo $url; ?>vistas/img/usuarios/40/944.jpg" width="20%">
+                    </span>
+
+                </div>
+
+                <div class="panel-body"><small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro omnis
+                        molestias consequuntur quaerat illo aliquid, commodi iste quam laboriosam quas voluptate tempore
+                        distinctio dolore dolorem, ut, minus vitae unde optio.</small></div>
+
+                <div class="panel-footer">
+
+                    <i class="fa fa-star text-success"></i>
+                    <i class="fa fa-star text-success"></i>
+                    <i class="fa fa-star text-success"></i>
+                    <i class="fa fa-star-half-o text-success"></i>
+                    <i class="fa fa-star-o text-success"></i>
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="panel-group col-md-3 col-sm-6 col-xs-12">
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading text-uppercase">
+
+                    Andrés Felipe
+                    <span class="text-right">
+                        <img class="img-circle" src="<?php echo $url; ?>vistas/img/usuarios/40/944.jpg" width="20%">
+                    </span>
+
+                </div>
+
+                <div class="panel-body"><small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro omnis
+                        molestias consequuntur quaerat illo aliquid, commodi iste quam laboriosam quas voluptate tempore
+                        distinctio dolore dolorem, ut, minus vitae unde optio.</small></div>
+
+                <div class="panel-footer">
+
+                    <i class="fa fa-star text-success"></i>
+                    <i class="fa fa-star text-success"></i>
+                    <i class="fa fa-star text-success"></i>
+                    <i class="fa fa-star-half-o text-success"></i>
+                    <i class="fa fa-star-o text-success"></i>
+                    
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
+
+</div>
 
 </div>
