@@ -103,4 +103,16 @@ $(window).on("load", function() {
     datos.append("item", item);
     datos.append("ruta", ruta.pop());
 
+    $.ajax({
+
+        url:rutaOculta+"ajax/producto.ajax.php",
+        method:"POST",
+        data: datos,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(respuesta){}
+
+    });
+
 });
