@@ -88,6 +88,56 @@ header #categorias hr {
     border: 1px solid rgba(255, 255, 255, .3);
 }
 
+/*=============================================
+ VENTANAS MODALES
+=============================================*/
+
+.modalTitulo {
+    padding: 5px 0px;
+}
+
+.modalTitulo h3 {
+    text-align: center;
+    margin-top: -5px;
+    padding: 15px 0px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.modalFormulario .close {
+    position: absolute;
+    right: 27px;
+    top: 15px;
+    color: white;
+}
+
+.modalFormulario .facebook, .modalFormulario .google {
+    cursor: pointer;
+}
+
+.modalFormulario .facebook p {
+    background: #46639f;
+}
+
+.modalFormulario .google p {
+    background: #d6513e;
+}
+
+.modalFormulario .facebook p, .modalFormulario .google p {
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    padding: 8px;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.modalFormulario p i {
+    margin-left: -25px;
+    margin-right: 25px;
+    font-size: 25px;
+}
+
 /*================================================================
  ESCRITORIO GRANDE  (LG revisamos en 1366px en adelante)
 ================================================================*/
@@ -105,6 +155,10 @@ header #categorias hr {
 
     header #carrito {
         padding-left: 100px;
+    }
+
+    .modalFormulario .facebook p {
+        margin-right: -15px;
     }
 
 }
@@ -126,6 +180,10 @@ header #categorias hr {
 
     header #carrito {
         padding-left: 70px;
+    }
+
+    .modalFormulario .facebook p {
+        margin-right: -15px;
     }
 
 }
@@ -150,6 +208,10 @@ header #categorias hr {
 
     header #carrito p {
         display: none;
+    }
+
+    .modalFormulario .facebook p {
+        margin-right: -15px;
     }
 
 }
@@ -190,6 +252,10 @@ header #categorias hr {
 
     header #carrito {
         margin: 0px;
+    }
+
+    .modalFormulario .google p {
+        margin-top: -15px;
     }
 
 }
